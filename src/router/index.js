@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
+const UserLayout = () => import('@/layouts/userLayout')
+const BasicLayout = () => import('@/layouts/basicLayout')
+
 Vue.use(VueRouter)
 
 const routes = [
