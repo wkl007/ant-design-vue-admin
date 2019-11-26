@@ -8,8 +8,8 @@ const mixin = {
   data () {
     return {
       fixedHeader: false,
-      fixSiderbar: false,
-      fixSidebar: false,
+      fixSiderbar: true,
+      fixSidebar: true,
       layoutMode: 'sidemenu',
       contentWidth: 'Fixed',
       autoHideHeader: false,

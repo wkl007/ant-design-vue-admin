@@ -1,24 +1,18 @@
 <template>
-  <div class="company">
-    <icon-font type="icon-tuichu" />
-    <icon-font type="icon-facebook" />
-    <icon-font type="icon-twitter" />
-  </div>
+  <page-view>
+    111
+  </page-view>
 </template>
-
 <script>
-  import IconFont from '@/components/Iconfont'
+  import { PageView } from '@/layouts'
 
   export default {
-    name: 'Company',
     components: {
-      IconFont
-    }
+      PageView
+    },
+    data () {
+      return {}
+    },
+    methods: {}
   }
 </script>
-
-<style scoped lang="less">
-  .company {
-    height: auto;
-  }
-</style>
