@@ -1,3 +1,5 @@
+import store from '@/store'
+
 /**
  * 判断url
  * @param path
@@ -65,8 +67,8 @@ export function bubble_sort (arr, fn) {
   let len = arr.length
   while (len--) {
     for (let i = 0;
-         i < len;
-         i++
+      i < len;
+      i++
     ) {
       if (fn(arr[i], arr[i + 1]) > 0) {
         [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
@@ -189,4 +191,70 @@ export function checkTimestampValid (timestamp, validityPeriod = 24) {
   if (currentDate.getHours() - targetDate.getHours() > validityPeriod) return false
   // if (currentDate.getMinutes() - targetDate.getMinutes() > 1)return false;
   return true
+}
+
+/**
+ * 触发 window.resize
+ */
+export function triggerWindowResizeEvent () {
+  const event = document.createEvent('HTMLEvents')
+  event.initEvent('resize', true, true)
+  event.eventType = 'message'
+  window.dispatchEvent(event)
+}
+
+export function setPageTitle (pageTitle = '') {
+  const title = 'Ant Design Pro'
+  return pageTitle ? `${pageTitle} - ${title}` : title
+}
+
+/**
+ * 使用meta.role确定当前用户是否具有权限
+ * @param roles 角色数组
+ * @param route 路由信息
+ * @returns {boolean}
+ */
+export function hasPermission (roles, route) {
+  if (route.meta && route.meta.roles) {
+    return roles.some(role => route.meta.roles.includes(role))
+  } else {
+    return true
+  }
+}
+
+/**
+ * 通过递归过滤异步路由表
+ * @param routes 异步路由
+ * @param roles 角色数组
+ * @returns {[]}
+ */
+export function filterAsyncRoutes (routes, roles) {
+  const result = []
+  routes.forEach(route => {
+    const temp = { ...route }
+    if (hasPermission(roles, temp)) {
+      if (temp.children) {
+        temp.children = filterAsyncRoutes(temp.children, roles)
+      }
+      result.push(temp)
+    }
+  })
+  return result
+}
+
+/**
+ * 判断权限
+ * @param {Array} value
+ * @returns {Boolean}
+ * @example see @/views/permission/directive.vue
+ */
+export default function checkPermission (value) {
+  if (value && value instanceof Array && value.length > 0) {
+    const { userInfo: { roles } } = store.getters
+    const permissionRoles = value
+    return roles.some(role => { return permissionRoles.includes(role) })
+  } else {
+    console.error(`need roles! Like v-permission="['admin','editor']"`)
+    return false
+  }
 }

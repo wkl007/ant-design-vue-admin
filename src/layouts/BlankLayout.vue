@@ -1,11 +1,11 @@
 <template>
-  <div class="home">
-    home页面
+  <div>
+    <router-view/>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'home',
+    name: 'BlankLayout'
   }
 </script>

@@ -3,6 +3,7 @@ import App from '@/App.vue'
 import router from '@/router'
 import store from '@/store'
 import '@/configs/antd'
+import '@/configs/filter'
 import '@/configs/permission'
 
 import '@/assets/styles/index.less'

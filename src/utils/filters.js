@@ -1,6 +1,9 @@
 import moment from 'moment'
+import 'moment/locale/zh-cn'
 import numeral from 'numeral'
 import nzh from 'nzh/cn'
+
+moment.locale('zh-cn')
 
 /**
  * 格式化时间
