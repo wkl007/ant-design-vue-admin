@@ -15,7 +15,7 @@ export const constantRouterMap = [
       {
         path: 'login',
         name: 'Login',
-        component: () => import(/* webpackChunkName: "login" */ '@/views/user/Login'),
+        component: () => import(/* webpackChunkName: "login" */ '@/views/user/login'),
         meta: {
           title: '登录'
         }
@@ -52,13 +52,13 @@ export const asyncRouterMap = [
         meta: {
           title: '项目管理',
           keepAlive: false,
-          icon: 'iconicon_xiangmuxinxi'
+          icon: 'iconfont iconxuncha-shise'
         },
         children: [
           {
             path: '/project/company',
             name: 'Company',
-            component: () => import(/* webpackChunkName: "company" */ '@/views/project/Company'),
+            component: () => import(/* webpackChunkName: "company" */ '@/views/project/company'),
             meta: {
               title: '物业信息',
             }
@@ -71,25 +71,25 @@ export const asyncRouterMap = [
         name: 'exception',
         component: RouteView,
         redirect: '/exception/403',
-        meta: { title: '异常页', icon: 'warning', permission: ['exception'] },
+        meta: { title: '异常页', icon: 'warning' },
         children: [
           {
             path: '/exception/403',
             name: 'Exception403',
-            component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/403'),
-            meta: { title: '403', permission: ['exception'] }
+            component: () => import(/* webpackChunkName: "exception403" */ '@/views/exception/403'),
+            meta: { title: '403' }
           },
           {
             path: '/exception/404',
             name: 'Exception404',
-            component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404'),
-            meta: { title: '404', permission: ['exception'] }
+            component: () => import(/* webpackChunkName: "exception404" */ '@/views/exception/404'),
+            meta: { title: '404' }
           },
           {
             path: '/exception/500',
             name: 'Exception500',
-            component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/500'),
-            meta: { title: '500', permission: ['exception'] }
+            component: () => import(/* webpackChunkName: "exception500" */ '@/views/exception/500'),
+            meta: { title: '500' }
           }
         ]
       }

@@ -20,35 +20,35 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  import { resetRouter } from '@/router'
+import { mapActions, mapGetters } from 'vuex'
+import { resetRouter } from '@/router'
 
-  export default {
-    name: 'UserMenu',
-    computed: {
-      ...mapGetters(['userInfo'])
-    },
-    methods: {
-      ...mapActions(['setLoginStatus', 'setAccessToken', 'setPermission', 'setUserInfo']),
-      handleLogout () {
-        this.$confirm({
-          title: '提示',
-          content: '真的要注销登录吗 ?',
-          onOk: () => {
-            this.setLoginStatus(false)
-            this.setAccessToken('')
-            this.setUserInfo({})
-            this.setPermission({
-              routers: [],
-              addRouters: []
-            })
-            resetRouter()
-            this.$router.push(`/user/login?redirect=${this.$route.fullPath}`)
-          },
-          onCancel () {
-          }
-        })
-      }
+export default {
+  name: 'UserMenu',
+  computed: {
+    ...mapGetters(['userInfo'])
+  },
+  methods: {
+    ...mapActions(['setLoginStatus', 'setAccessToken', 'setPermission', 'setUserInfo']),
+    handleLogout () {
+      this.$confirm({
+        title: '提示',
+        content: '真的要注销登录吗 ?',
+        onOk: () => {
+          this.setLoginStatus(false)
+          this.setAccessToken('')
+          this.setUserInfo({})
+          this.setPermission({
+            routers: [],
+            addRouters: []
+          })
+          resetRouter()
+          this.$router.push(`/user/login?redirect=${this.$route.fullPath}`)
+        },
+        onCancel () {
+        }
+      })
     }
   }
+}
 </script>

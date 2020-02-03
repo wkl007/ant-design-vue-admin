@@ -4,7 +4,7 @@
       <div class="top">
         <div class="header">
           <a href="/">
-            <img src="~@/assets/images/logo.svg" class="logo" alt="logo">
+            <img src="~@/assets/images/logo.png" class="logo" alt="logo">
             <span class="title">Ant Design</span>
           </a>
         </div>
@@ -28,9 +28,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'UserLayout'
-  }
+export default {
+  name: 'UserLayout'
+}
 </script>
 
 <style scoped lang="less">

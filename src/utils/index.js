@@ -1,4 +1,5 @@
 import store from '@/store'
+import { DEFAULT_TITLE } from '@/utils/constants'
 
 /**
  * 判断url
@@ -204,7 +205,7 @@ export function triggerWindowResizeEvent () {
 }
 
 export function setPageTitle (pageTitle = '') {
-  const title = 'Ant Design Pro'
+  const title = DEFAULT_TITLE
   return pageTitle ? `${pageTitle} - ${title}` : title
 }
 

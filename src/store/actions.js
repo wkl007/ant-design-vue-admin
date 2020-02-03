@@ -1,5 +1,5 @@
 import { removeCookie, removeStorage, saveCookie, saveSessionStorage, saveStorage } from '@/utils/cache'
-import { ACCESS_TOKEN, LOGIN_STATUS, USER_INFO, SETTINGS } from '@/utils/constants'
+import { ACCESS_TOKEN, LOGIN_STATUS, SETTINGS, USER_INFO } from '@/utils/constants'
 import * as types from './mutationTypes'
 
 /**
@@ -40,6 +40,11 @@ export const setAccessToken = ({ commit, state }, query) => {
  * @param query
  */
 export const setUserInfo = ({ commit, state }, query) => {
+  if (!query) {
+    removeStorage(USER_INFO)
+  } else {
+    saveStorage(USER_INFO, query)
+  }
   commit(types.SET_USER_INFO, query)
 }
 

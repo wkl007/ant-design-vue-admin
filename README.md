@@ -1,4 +1,4 @@
-# vue-ant-design-admin
+# ant-design-vue-admin
 > vue ant design 中后台练手项目。
 
 ## Project setup

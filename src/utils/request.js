@@ -18,7 +18,8 @@ request.interceptors.request.use(config => {
 })
 
 // http响应拦截器
-request.interceptors.response.use(response => {
+request.interceptors.response.use(
+  response => {
     const { errCode, errMsg, data, status } = response.data
     if (status === 1) {
       return data
@@ -31,6 +32,11 @@ request.interceptors.response.use(response => {
             store.dispatch('setLoginStatus', false)
             store.dispatch('setAccessToken', '')
             store.dispatch('setUserInfo', {})
+            store.dispatch('setPermission', {
+              routers: [],
+              addRouters: []
+            })
+            resetRouter()
             // 重新登录
             window.location.reload()
           }

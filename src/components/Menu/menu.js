@@ -142,11 +142,15 @@ export default {
       if (icon === 'none' || icon === undefined) {
         return null
       }
-      const props = {}
-      typeof (icon) === 'object' ? props.component = icon : props.type = icon
-      return (
-        <IconFont type={icon}/>
-      )
+      let type = icon
+      if (icon.includes('iconfont')) {
+        type = icon.replace('iconfont', '').trim()
+        return (
+          <IconFont type={type}/>
+        )
+      } else {
+        return <Icon type={type}/>
+      }
     },
 
     onSelect () {

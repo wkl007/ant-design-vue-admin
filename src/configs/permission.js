@@ -12,7 +12,7 @@ const WHITE_LIST = ['/user/login'] // 重定向白名单
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
   document.title = setPageTitle(to.meta.title)
-  const { loginStatus, userInfo: { roles }, accessToken } = store.getters
+  const { loginStatus, userInfo: { roles } } = store.getters
   if (loginStatus) {
     if (to.path === '/user/login') {
       next({ path: '/' })
@@ -24,12 +24,9 @@ router.beforeEach(async (to, from, next) => {
         NProgress.done()
       } else {
         try {
-          const userInfo = {
-            username: accessToken.includes('admin') ? 'admin' : 'normal',
-            roles: accessToken.includes('admin') ? ['admin'] : ['normal'],
-            avatarUrl: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-          }
-          await store.dispatch('setUserInfo', userInfo)
+          // 默认当前用户拥有管理员权限，此处代码不要注释或删除，会导致页面卡死
+          let userInfo = store.getters.userInfo
+          userInfo.roles = ['admin']
 
           const accessedRoutes = await generateRoutes(userInfo.roles) || []
 

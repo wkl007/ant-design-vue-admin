@@ -1,10 +1,5 @@
 import enquireJs from 'enquire.js'
-
-export const DEVICE_TYPE = {
-  DESKTOP: 'desktop',
-  TABLET: 'tablet',
-  MOBILE: 'mobile'
-}
+import { DEVICE_TYPE } from '@/utils/constants'
 
 export const deviceEnquire = function (callback) {
   const matchDesktop = {

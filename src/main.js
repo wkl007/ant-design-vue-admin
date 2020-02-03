@@ -5,6 +5,7 @@ import store from '@/store'
 import '@/configs/antd'
 import '@/configs/filter'
 import '@/configs/permission'
+import '@/configs/registerServiceWorker'
 
 import '@/assets/styles/index.less'
 

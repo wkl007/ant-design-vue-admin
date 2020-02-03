@@ -7,21 +7,25 @@
 </template>
 
 <script>
-  import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
-  import { AppDeviceEnquire } from '@/mixins'
+import images from '@/assets/images'
+import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
+import { AppDeviceMixin } from '@/mixins'
 
-  export default {
-    mixins: [AppDeviceEnquire],
-    data () {
-      return {
-        locale: zhCN
-      }
+export default {
+  mixins: [AppDeviceMixin],
+  provide: {
+    images
+  },
+  data () {
+    return {
+      locale: zhCN
     }
-  }
+  },
+}
 </script>
 
 <style lang="less">
-  #app {
-    height: 100%;
-  }
+#app {
+  height: 100%;
+}
 </style>

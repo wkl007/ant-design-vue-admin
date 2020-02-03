@@ -59,88 +59,88 @@
 </template>
 
 <script>
-  import { triggerWindowResizeEvent } from '@/utils'
-  import { mapActions, mapGetters } from 'vuex'
-  import { mixin, mixinDevice } from '@/mixins'
+import { triggerWindowResizeEvent } from '@/utils'
+import { mapGetters } from 'vuex'
+import { DeviceTypeMixin, SettingsMixin } from '@/mixins'
 
-  import RouteView from './RouteView'
-  import SideMenu from '@/components/Menu/SideMenu'
-  import GlobalHeader from '@/components/GlobalHeader'
-  import GlobalFooter from '@/components/GlobalFooter'
-  import MultiTab from '@/components/MultiTab/MultiTab'
+import RouteView from './RouteView'
+import SideMenu from '@/components/Menu/SideMenu'
+import GlobalHeader from '@/components/GlobalHeader'
+import GlobalFooter from '@/components/GlobalFooter'
+import MultiTab from '@/components/MultiTab/MultiTab'
 
-  export default {
-    name: 'BasicLayout',
-    mixins: [mixin, mixinDevice],
-    components: {
-      RouteView,
-      SideMenu,
-      GlobalHeader,
-      GlobalFooter,
-      MultiTab
-    },
-    data () {
-      return {
-        collapsed: false,
-        menus: [],
-        multiTab: false
-      }
-    },
-    computed: {
-      ...mapGetters(['permission']),
-      contentPaddingLeft () {
-        if (!this.fixSidebar || this.isMobile()) {
-          return '0'
-        }
-        if (this.settings.sidebar) {
-          return '256px'
-        }
-        return '80px'
-      }
-    },
-    watch: {
-      'settings.sidebar' (val) {
-        this.collapsed = !val
-      }
-    },
-    created () {
-      this.menus = this.permission.addRouters.length ? this.permission.addRouters.find(item => item.path === '/').children : []
-      this.collapsed = !this.settings.sidebar
-    },
-    mounted () {
-      const userAgent = navigator.userAgent
-      if (userAgent.indexOf('Edge') > -1) {
-        this.$nextTick(() => {
-          this.collapsed = !this.collapsed
-          setTimeout(() => {
-            this.collapsed = !this.collapsed
-          }, 16)
-        })
-      }
-    },
-    methods: {
-      toggle () {
-        this.collapsed = !this.collapsed
-        const settings = { ...this.settings }
-        settings.sidebar = !this.collapsed
-        this.setSettings(settings)
-        triggerWindowResizeEvent()
-      },
-      paddingCalc () {
-        let left = ''
-        if (this.settings.sidebar) {
-          left = this.isDesktop() ? '256px' : '80px'
-        } else {
-          left = (this.isMobile() && '0') || ((this.fixSidebar && '80px') || '0')
-        }
-        return left
-      },
-      menuSelect () {},
-      drawerClose () {
-        this.collapsed = false
-      },
+export default {
+  name: 'BasicLayout',
+  mixins: [SettingsMixin, DeviceTypeMixin],
+  components: {
+    RouteView,
+    SideMenu,
+    GlobalHeader,
+    GlobalFooter,
+    MultiTab
+  },
+  data () {
+    return {
+      collapsed: false,
+      menus: [],
+      multiTab: false
     }
+  },
+  computed: {
+    ...mapGetters(['permission']),
+    contentPaddingLeft () {
+      if (!this.fixSidebar || this.isMobile()) {
+        return '0'
+      }
+      if (this.settings.sidebar) {
+        return '256px'
+      }
+      return '80px'
+    }
+  },
+  watch: {
+    'settings.sidebar' (val) {
+      this.collapsed = !val
+    }
+  },
+  created () {
+    this.menus = this.permission.addRouters.length ? this.permission.addRouters.find(item => item.path === '/').children : []
+    this.collapsed = !this.settings.sidebar
+  },
+  mounted () {
+    const userAgent = navigator.userAgent
+    if (userAgent.indexOf('Edge') > -1) {
+      this.$nextTick(() => {
+        this.collapsed = !this.collapsed
+        setTimeout(() => {
+          this.collapsed = !this.collapsed
+        }, 16)
+      })
+    }
+  },
+  methods: {
+    toggle () {
+      this.collapsed = !this.collapsed
+      const settings = { ...this.settings }
+      settings.sidebar = !this.collapsed
+      this.setSettings(settings)
+      triggerWindowResizeEvent()
+    },
+    paddingCalc () {
+      let left = ''
+      if (this.settings.sidebar) {
+        left = this.isDesktop() ? '256px' : '80px'
+      } else {
+        left = (this.isMobile() && '0') || ((this.fixSidebar && '80px') || '0')
+      }
+      return left
+    },
+    menuSelect () {},
+    drawerClose () {
+      this.collapsed = false
+    },
   }
+}
 </script>
 
 <style lang="less">

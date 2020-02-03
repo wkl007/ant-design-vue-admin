@@ -51,70 +51,70 @@
 </template>
 
 <script>
-  import PageHeader from '@/components/PageHeader'
+import PageHeader from '@/components/PageHeader'
 
-  export default {
-    name: 'PageView',
-    components: {
-      PageHeader
+export default {
+  name: 'PageView',
+  components: {
+    PageHeader
+  },
+  props: {
+    avatar: {
+      type: String,
+      default: null
     },
-    props: {
-      avatar: {
-        type: String,
-        default: null
-      },
-      title: {
-        type: [String, Boolean],
-        default: true
-      },
-      logo: {
-        type: String,
-        default: null
-      },
-      directTabs: {
-        type: Object,
-        default: null
-      }
+    title: {
+      type: [String, Boolean],
+      default: true
     },
-    data () {
-      return {
-        pageTitle: null,
-        description: null,
-        linkList: [],
-        extraImage: '',
-        search: false,
-        tabs: {},
-        multiTab: false
-      }
+    logo: {
+      type: String,
+      default: null
     },
-    computed: {},
-    mounted () {
-      this.tabs = this.directTabs
-      this.getPageMeta()
-    },
-    updated () {
-      this.getPageMeta()
-    },
-    methods: {
-      getPageMeta () {
-        // eslint-disable-next-line
+    directTabs: {
+      type: Object,
+      default: null
+    }
+  },
+  data () {
+    return {
+      pageTitle: null,
+      description: null,
+      linkList: [],
+      extraImage: '',
+      search: false,
+      tabs: {},
+      multiTab: false
+    }
+  },
+  computed: {},
+  mounted () {
+    this.tabs = this.directTabs
+    this.getPageMeta()
+  },
+  updated () {
+    this.getPageMeta()
+  },
+  methods: {
+    getPageMeta () {
+      // eslint-disable-next-line
         this.pageTitle = (typeof(this.title) === 'string' || !this.title) ? this.title : this.$route.meta.title
 
-        const content = this.$refs.content
-        if (content) {
-          if (content.pageMeta) {
-            Object.assign(this, content.pageMeta)
-          } else {
-            this.description = content.description
-            this.linkList = content.linkList
-            this.extraImage = content.extraImage
-            this.search = content.search === true
-            this.tabs = content.tabs
-          }
+      const content = this.$refs.content
+      if (content) {
+        if (content.pageMeta) {
+          Object.assign(this, content.pageMeta)
+        } else {
+          this.description = content.description
+          this.linkList = content.linkList
+          this.extraImage = content.extraImage
+          this.search = content.search === true
+          this.tabs = content.tabs
         }
       }
     }
   }
+}
 </script>
 
 <style lang="less" scoped>
