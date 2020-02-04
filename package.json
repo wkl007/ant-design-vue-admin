@@ -20,12 +20,10 @@
   },
   "lint-staged": {
     "src/**/*.{js,vue}": [
-      "vue-cli-service lint",
-      "git add"
+      "vue-cli-service lint"
     ],
     "src/**/*.{vue,htm,html,css,sss,less,scss}": [
-      "vue-cli-service lint:style",
-      "git add"
+      "vue-cli-service lint:style"
     ]
   },
   "config": {
