@@ -1,0 +1,48 @@
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+/* NProgress, (c) 2013, 2014 Rico Sta. Cruz - http://ricostacruz.com/nprogress
+ * @license MIT */
+
+/*!
+  * vue-router v3.1.6
+  * (c) 2020 Evan You
+  * @license MIT
+  */
+
+/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+
+/*!
+ * JavaScript Cookie v2.2.1
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
+ */
+
+/*!
+ * Vue.js v2.6.11
+ * (c) 2014-2019 Evan You
+ * Released under the MIT License.
+ */
+
+/*! @preserve
+ * numeral.js
+ * version : 2.0.6
+ * author : Adam Draper
+ * license : MIT
+ * http://adamwdraper.github.com/Numeral-js/
+ */
+
+/**
+ * vuex v3.1.3
+ * (c) 2020 Evan You
+ * @license MIT
+ */
