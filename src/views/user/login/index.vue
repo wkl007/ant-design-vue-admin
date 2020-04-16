@@ -1,49 +1,44 @@
 <template>
   <div class="main">
-    <a-form
-      id="formLogin"
-      class="user-layout-login"
+    <a-form-model
       ref="formLogin"
-      :form="form"
-      @submit.stop="handleSubmit"
+      :model="form"
+      :rules="rules"
+      @submit="handleSubmit"
+      @submit.native.prevent
     >
-      <a-form-item>
+      <a-form-model-item prop="username">
         <a-input
           size="large"
           type="text"
           placeholder="账户: admin"
-          v-decorator="[
-                'username',
-                {rules: [{ required: true, message: '请输入帐户名或邮箱地址' }], validateTrigger: 'change'}
-              ]"
+          v-model="form.username"
         >
           <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
         </a-input>
-      </a-form-item>
-      <a-form-item>
+      </a-form-model-item>
+      <a-form-model-item prop="password">
         <a-input
           size="large"
           type="password"
           autocomplete="false"
           placeholder="密码: admin or ant.design"
-          v-decorator="[
-                'password',
-                {rules: [{ required: true, message: '请输入密码' }], validateTrigger: 'blur'}
-          ]"
+          v-model="form.password"
         >
           <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
         </a-input>
-      </a-form-item>
-      <a-form-item style="margin-top: 24px;">
+      </a-form-model-item>
+      <a-form-model-item style="margin-top: 24px;">
         <a-button
           size="large"
           type="primary"
           htmlType="submit"
           class="login-button"
+          block
         >确定
         </a-button>
-      </a-form-item>
-    </a-form>
+      </a-form-model-item>
+    </a-form-model>
   </div>
 </template>
 
@@ -54,15 +49,25 @@ export default {
   name: 'Login',
   data () {
     return {
-      form: this.$form.createForm(this)
+      form: {
+        username: '',
+        password: ''
+      },
+      rules: {
+        username: [
+          { required: true, message: '请输入帐户名或邮箱地址', trigger: 'change' }
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' }
+        ]
+      }
     }
   },
   methods: {
-    handleSubmit (e) {
-      e.preventDefault()
-      const { form: { validateFields } } = this
-      validateFields((err, values) => {
-        if (err) return
+    handleSubmit () {
+      this.$refs.formLogin.validate(valid => {
+        if (!valid) return
+        const values = this.form
         const userInfo = {
           username: values.username.includes('admin') ? 'admin' : 'normal',
           avatarUrl: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
@@ -74,6 +79,9 @@ export default {
           path: '/'
         })
       })
+    },
+    resetForm () {
+      this.$refs.formLogin.resetFields()
     },
     ...mapActions(['setLoginStatus', 'setUserInfo', 'setAccessToken'])
   }

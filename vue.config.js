@@ -1,10 +1,8 @@
 const path = require('path')
-// const defaultSettings = require('./src/utils/settings')
+const webpack = require('webpack')
 
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')// 去console插件
+const TerserPlugin = require('terser-webpack-plugin')// 去console插件
 const CompressionWebpackPlugin = require('compression-webpack-plugin')// gzip压缩插件
-
-// const name = defaultSettings.title
 
 function resolve (dir) { return path.join(__dirname, dir) }
 
@@ -37,8 +35,11 @@ module.exports = {
   configureWebpack: config => {
     // config.name = name
     const plugins = [
-      new UglifyJsPlugin({
-        uglifyOptions: {
+      // 忽略moment locale文件
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      // 去console
+      new TerserPlugin({
+        terserOptions: {
           warnings: false,
           compress: {
             drop_debugger: true,
@@ -48,6 +49,7 @@ module.exports = {
         sourceMap: false,
         parallel: true,
       }),
+      // gzip压缩
       new CompressionWebpackPlugin({
         filename: '[path].gz[query]',
         algorithm: 'gzip',
@@ -88,8 +90,8 @@ module.exports = {
   devServer: {
     open: true, // 打开浏览器
     overlay: {
-      warnings: true,
-      errors: true
+      warnings: false,
+      errors: false
     },
     host: '0.0.0.0',
     port: 8080,

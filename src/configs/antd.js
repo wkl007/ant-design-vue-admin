@@ -25,12 +25,12 @@ import {
   Dropdown,
   Empty,
   Form,
+  FormModel,
   Icon,
   Input,
   InputNumber,
   Layout,
   List,
-  LocaleProvider,
   Menu,
   message,
   Modal,
@@ -41,6 +41,7 @@ import {
   Progress,
   Radio,
   Rate,
+  Result,
   Row,
   Select,
   Skeleton,
@@ -93,12 +94,12 @@ Vue.use(Divider)
 Vue.use(Drawer)
 Vue.use(Dropdown)
 Vue.use(Form)
+Vue.use(FormModel)
 Vue.use(Icon)
 Vue.use(Input)
 Vue.use(InputNumber)
 Vue.use(Layout)
 Vue.use(List)
-Vue.use(LocaleProvider)
 Vue.use(Menu)
 Vue.use(Modal)
 Vue.use(Pagination)
@@ -108,6 +109,7 @@ Vue.use(Progress)
 Vue.use(Radio)
 Vue.use(Rate)
 Vue.use(Row)
+Vue.use(Result)
 Vue.use(Select)
 Vue.use(Slider)
 Vue.use(Spin)
