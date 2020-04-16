@@ -50,7 +50,7 @@ export function throttle (func, gapTime) {
   let _lastTime = null
 
   return function () {
-    let _nowTime = +new Date()
+    const _nowTime = +new Date()
     if (_nowTime - _lastTime > gapTime || !_lastTime) {
       func()
       _lastTime = _nowTime
@@ -137,7 +137,7 @@ export function toggleClass (el, className) {
  * @returns {*}
  */
 export function getData (el, name, val) {
-  let prefix = 'data-'
+  const prefix = 'data-'
   if (val) {
     return el.setAttribute(prefix + name, val)
   }
@@ -151,7 +151,7 @@ export function getData (el, name, val) {
  */
 export function getRect (el) {
   if (el instanceof window.SVGElement) {
-    let rect = el.getBoundingClientRect()
+    const rect = el.getBoundingClientRect()
     return {
       top: rect.top,
       left: rect.left,
@@ -255,7 +255,7 @@ export default function checkPermission (value) {
     const permissionRoles = value
     return roles.some(role => { return permissionRoles.includes(role) })
   } else {
-    console.error(`need roles! Like v-permission="['admin','editor']"`)
+    console.error('need roles! Like v-permission="[\'admin\',\'editor\']"')
     return false
   }
 }

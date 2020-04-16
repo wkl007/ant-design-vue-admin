@@ -11,7 +11,7 @@ const request = axios.create({
 // http请求拦截器
 request.interceptors.request.use(config => {
   const { accessToken, loginStatus } = store.getters
-  if (loginStatus && accessToken) config.headers['Authorization'] = `JWT ${accessToken}`
+  if (loginStatus && accessToken) config.headers.Authorization = `JWT ${accessToken}`
   return config
 }, error => {
   return Promise.reject(error)

@@ -25,7 +25,7 @@ router.beforeEach(async (to, from, next) => {
       } else {
         try {
           // 默认当前用户拥有管理员权限，此处代码不要注释或删除，会导致页面卡死
-          let userInfo = store.getters.userInfo
+          const userInfo = store.getters.userInfo
           userInfo.roles = ['admin']
 
           const accessedRoutes = await generateRoutes(userInfo.roles) || []
