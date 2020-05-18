@@ -33,6 +33,12 @@ object-assign
  * Released under the MIT License.
  */
 
+/*!
+ * vuex v3.4.0
+ * (c) 2020 Evan You
+ * @license MIT
+ */
+
 /*! @preserve
  * numeral.js
  * version : 2.0.6
@@ -41,8 +47,6 @@ object-assign
  * http://adamwdraper.github.com/Numeral-js/
  */
 
-/**
- * vuex v3.1.3
- * (c) 2020 Evan You
- * @license MIT
- */
+//! moment.js
+
+//! moment.js locale configuration
