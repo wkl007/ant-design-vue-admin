@@ -79,10 +79,12 @@ module.exports = {
     // css预设器配置项
     loaderOptions: {
       less: {
-        modifyVars: {
-          // 'primary-color': '#1DA57A'
-        },
-        javascriptEnabled: true
+        lessOptions: {
+          modifyVars: {
+            // 'primary-color': '#1DA57A'
+          },
+          javascriptEnabled: true
+        }
       }
     },
   },

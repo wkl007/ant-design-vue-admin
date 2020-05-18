@@ -31,5 +31,6 @@ module.exports = {
     'object-curly-spacing': [0, 'never'],// 大括号内是否允许不必要的空格
     'space-before-function-paren': 0,// 函数定义时括号前面要不要有空格
     'spaced-comment': 2,// 注释空格
+    'vue/no-unused-vars': 0
   },
 }
