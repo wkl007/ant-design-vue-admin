@@ -8,7 +8,7 @@ object-assign
  * @license MIT */
 
 /*!
-  * vue-router v3.3.2
+  * vue-router v3.3.4
   * (c) 2020 Evan You
   * @license MIT
   */
