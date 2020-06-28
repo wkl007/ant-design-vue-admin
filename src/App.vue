@@ -8,7 +8,7 @@
 
 <script>
 import images from '@/assets/images'
-import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
+import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { AppDeviceMixin } from '@/mixins'
 
 export default {
