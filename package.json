@@ -45,8 +45,8 @@
     "nzh": "^1.0.4",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vue-router": "^3.3.4",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@ascendancyy/vue-cli-plugin-stylelint": "^1.1.2",
@@ -64,7 +64,7 @@
     "commitizen": "^4.1.2",
     "compression-webpack-plugin": "^4.0.0",
     "cz-conventional-changelog": "^3.2.0",
-    "eslint": "^7.3.1",
+    "eslint": "^7.4.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -72,7 +72,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
     "less": "^3.11.3",
-    "less-loader": "^6.1.2",
+    "less-loader": "^6.2.0",
     "lint-staged": "^10.2.11",
     "stylelint": "^13.6.1",
     "stylelint-config-rational-order": "^0.1.2",
