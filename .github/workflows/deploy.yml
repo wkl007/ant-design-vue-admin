@@ -1,5 +1,5 @@
 name: Ant Design Vue Admin
-on: [push]
+on: [ push ]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest

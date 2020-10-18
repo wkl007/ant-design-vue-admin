@@ -49,10 +49,10 @@ export function debounce (func, delay) {
 export function throttle (func, gapTime) {
   let _lastTime = null
 
-  return function () {
+  return function (...args) {
     const _nowTime = +new Date()
     if (_nowTime - _lastTime > gapTime || !_lastTime) {
-      func()
+      func.apply(this, args)
       _lastTime = _nowTime
     }
   }
@@ -64,7 +64,7 @@ export function throttle (func, gapTime) {
  * @param fn 升序(a, b) => a - b) 降序 (a, b) => b - a)
  * @returns {*}
  */
-export function bubble_sort (arr, fn) {
+export function bubbleSort (arr, fn) {
   let len = arr.length
   while (len--) {
     for (let i = 0;

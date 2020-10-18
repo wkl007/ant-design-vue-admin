@@ -65,7 +65,7 @@ export default {
             rules: [{ whitespace: true, required: true, message: '请输入密码！' }]
           }
         }
-      },
+      }
 
     }
   },
@@ -76,7 +76,7 @@ export default {
         if (err) return
         const userInfo = {
           username: values.username.includes('admin') ? 'admin' : 'normal',
-          avatarUrl: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+          avatarUrl: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
         }
         this.setLoginStatus(true)
         this.setAccessToken(`${values.username}Token`)

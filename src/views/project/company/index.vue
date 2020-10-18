@@ -30,7 +30,7 @@ export default {
   },
   data () {
     return {
-      form: this.$form.createForm(this),
+      form: this.$form.createForm(this)
     }
   },
   methods: {
@@ -38,14 +38,14 @@ export default {
     handleTestSubmit () {
       const { form: { validateFields } } = this
       validateFields((err, values) => {
-        console.log(values)
+        // console.log(values)
       })
     },
     // 测试重置
     handleTestReset () {
       const { form: { resetFields } } = this
       resetFields()
-    },
+    }
   }
 }
 </script>

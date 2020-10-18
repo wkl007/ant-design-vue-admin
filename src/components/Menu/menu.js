@@ -153,9 +153,7 @@ export default {
       }
     },
 
-    onSelect () {
-      console.log(222)
-    }
+    onSelect () {}
   },
   render () {
     const { mode, theme, menu } = this
@@ -166,9 +164,8 @@ export default {
     }
     const on = {
       select: e => {
-        console.log(e)
-        this.selectedKeys = obj.selectedKeys
-        this.$emit('select', obj)
+        this.selectedKeys = e.selectedKeys
+        this.$emit('select', e)
       },
       openChange: this.onOpenChange
     }

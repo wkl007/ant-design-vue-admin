@@ -60,7 +60,7 @@ export const asyncRouterMap = [
             name: 'Company',
             component: () => import(/* webpackChunkName: "company" */ '@/views/project/company'),
             meta: {
-              title: '物业信息',
+              title: '物业信息'
             }
           }
         ]

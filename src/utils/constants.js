@@ -54,13 +54,13 @@ export const TABLE_PROPS = {
   rowKey: (record, index) => index,
   scroll: { x: false },
   bordered: true,
-  size: 'small',
+  size: 'small'
 }
 
 export const MODAL_PROPS = {
   style: { top: '18%' },
   maskClosable: false,
-  bodyStyle: { padding: '16px 24px' },
+  bodyStyle: { padding: '16px 24px' }
 }
 
 export const BUTTON_STYLE = {
@@ -94,5 +94,5 @@ export const SELECT_PROPS = {
 
 export const UPLOAD_PROPS = {
   accept: 'image/*',
-  showUploadList: false,
+  showUploadList: false
 }

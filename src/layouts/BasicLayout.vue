@@ -138,7 +138,7 @@ export default {
     menuSelect () {},
     drawerClose () {
       this.collapsed = false
-    },
+    }
   }
 }
 </script>

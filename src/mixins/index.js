@@ -7,7 +7,7 @@ import { mapActions, mapGetters } from 'vuex'
  */
 const SettingsMixin = {
   computed: {
-    ...mapGetters(['settings']),
+    ...mapGetters(['settings'])
   },
   data () {
     return {
@@ -37,7 +37,7 @@ const SettingsMixin = {
  */
 const DeviceTypeMixin = {
   computed: {
-    ...mapGetters(['settings']),
+    ...mapGetters(['settings'])
   },
   methods: {
     isMobile () {
