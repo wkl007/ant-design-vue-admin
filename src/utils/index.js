@@ -1,5 +1,14 @@
+import Moment from 'moment'
+import 'moment/locale/zh-cn'
 import store from '@/store'
 import { DEFAULT_TITLE } from '@/utils/constants'
+
+Moment.locale('zh-cn')
+
+/**
+ * moment实例
+ */
+export const moment = Moment
 
 /**
  * 判断url
