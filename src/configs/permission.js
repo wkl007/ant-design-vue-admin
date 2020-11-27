@@ -79,7 +79,7 @@ router.afterEach(() => {
 /**
  * 获取运行访问的路由
  * @param roles
- * @returns {Promise<unknown>}
+ * @returns {Promise<any>}
  */
 function generateRoutes (roles) {
   return new Promise(async (resolve, reject) => {

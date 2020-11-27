@@ -11,6 +11,15 @@ Moment.locale('zh-cn')
 export const moment = Moment
 
 /**
+ * 睡眠函数
+ * @param timeout
+ * @returns {Promise<any>}
+ */
+export function sleep (timeout) {
+  return new Promise(resolve => setTimeout(resolve, timeout))
+}
+
+/**
  * 判断url
  * @param path
  * @returns {boolean}

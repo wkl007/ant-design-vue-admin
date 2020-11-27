@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const TerserPlugin = require('terser-webpack-plugin')// 去console插件
 const CompressionWebpackPlugin = require('compression-webpack-plugin')// gzip压缩插件
 
-function resolve (dir) { return path.join(__dirname, dir) }
+const resolve = dir => path.join(__dirname, dir)
 
 module.exports = {
   // 基本路径
@@ -69,6 +69,56 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
+    // .set('@ant-design/icons/lib/dist$', resolve('src/utils/icons.js'))
+
+    // externals配置
+    const externals = {
+      vue: 'Vue',
+      'vue-router': 'VueRouter',
+      vuex: 'Vuex',
+      axios: 'axios'
+    }
+    config.externals(externals)
+
+    // cdn配置
+    const cdnUrl = 'https://cdn.jsdelivr.net/npm/'
+    const cdn = {
+      // 开发环境
+      dev: {
+        js: [
+          // babel-polyfill
+          `${cdnUrl}babel-polyfill@6.26.0/dist/polyfill.js`,
+          // vue
+          `${cdnUrl}vue@2.6.12/dist/vue.js`,
+          // vue-router
+          `${cdnUrl}vue-router@3.4.9/dist/vue-router.js`,
+          // vuex
+          `${cdnUrl}vuex@3.6.0/dist/vuex.js`
+        ]
+      },
+      // 生产环境
+      build: {
+        js: [
+          // babel-polyfill
+          `${cdnUrl}babel-polyfill@6.26.0/dist/polyfill.min.js`,
+          // vue
+          `${cdnUrl}vue@2.6.12/dist/vue.min.js`,
+          // vue-router
+          `${cdnUrl}vue-router@3.4.9/dist/vue-router.min.js`,
+          // vuex
+          `${cdnUrl}vuex@3.6.0/dist/vuex.min.js`
+        ]
+      }
+    }
+    config.plugin('html').tap(args => {
+      if (process.env.NODE_ENV === 'production') {
+        args[0].cdn = cdn.build
+      }
+      if (process.env.NODE_ENV === 'development') {
+        args[0].cdn = cdn.dev
+      }
+      return args
+    })
   },
   // css相关配置
   css: {
