@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ant-design-vue-admin/precache-manifest.e1c2448cb5be3c1651399b580a44b410.js"
+  "/ant-design-vue-admin/precache-manifest.cf683dea0eea5fc0a9bee68cc26961de.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "ant-design-vue-admin"});
