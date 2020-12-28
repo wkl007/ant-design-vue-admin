@@ -67,8 +67,7 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    config.resolve.alias
-      .set('@', resolve('src'))
+    config.resolve.alias.set('@', resolve('src'))
     // .set('@ant-design/icons/lib/dist$', resolve('src/utils/icons.js'))
 
     // externals配置
@@ -93,7 +92,9 @@ module.exports = {
           // vue-router
           `${cdnUrl}vue-router@3.4.9/dist/vue-router.js`,
           // vuex
-          `${cdnUrl}vuex@3.6.0/dist/vuex.js`
+          `${cdnUrl}vuex@3.6.0/dist/vuex.js`,
+          // axios
+          `${cdnUrl}axios@0.21.0/dist/axios.js`
         ]
       },
       // 生产环境
@@ -106,7 +107,9 @@ module.exports = {
           // vue-router
           `${cdnUrl}vue-router@3.4.9/dist/vue-router.min.js`,
           // vuex
-          `${cdnUrl}vuex@3.6.0/dist/vuex.min.js`
+          `${cdnUrl}vuex@3.6.0/dist/vuex.min.js`,
+          // axios
+          `${cdnUrl}axios@0.21.0/dist/axios.min.js`
         ]
       }
     }

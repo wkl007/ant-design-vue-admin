@@ -24,6 +24,11 @@ module.exports = {
       args: 'none'
     }],
     'no-undef': 0, // 不能有未定义的变量
-    'no-async-promise-executor': 0 // 将异步功能用作Promise执行器
+    'no-async-promise-executor': 0, // 将异步功能用作Promise执行器
+    'vue/no-unused-vars': 0, // 未使用的变量
+    'standard/no-callback-literal': 0,
+    'node/handle-callback-err': 0,
+    'node/no-callback-literal': 0,
+    'array-callback-return': 0
   }
 }
