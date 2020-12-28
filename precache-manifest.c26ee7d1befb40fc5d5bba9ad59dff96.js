@@ -1,14 +1,14 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7a24c33ef6f305f34e0b",
+    "revision": "194cb86cfa717cb0800c",
     "url": "/ant-design-vue-admin/css/app.362bc83b.css"
   },
   {
-    "revision": "ddb1c7351d62024c96cc",
+    "revision": "88615a1f04e8904ff6c9",
     "url": "/ant-design-vue-admin/css/chunk-vendors.a8f08676.css"
   },
   {
-    "revision": "38a12e18f642e3ac5759",
+    "revision": "94052e1c3889581256d6",
     "url": "/ant-design-vue-admin/css/login.d4d8a960.css"
   },
   {
@@ -24,40 +24,40 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ant-design-vue-admin/img/logo.f3103225.svg"
   },
   {
-    "revision": "0fcbb4be27073807809da05f676a456b",
+    "revision": "b4bce30c976448d0e3bb49e29263290e",
     "url": "/ant-design-vue-admin/index.html"
   },
   {
-    "revision": "7a24c33ef6f305f34e0b",
-    "url": "/ant-design-vue-admin/js/app.13af3531.js"
+    "revision": "194cb86cfa717cb0800c",
+    "url": "/ant-design-vue-admin/js/app.9e43436f.js"
   },
   {
-    "revision": "ddb1c7351d62024c96cc",
-    "url": "/ant-design-vue-admin/js/chunk-vendors.cf3e8e7f.js"
+    "revision": "88615a1f04e8904ff6c9",
+    "url": "/ant-design-vue-admin/js/chunk-vendors.8cde8560.js"
   },
   {
     "revision": "381a9193000528a383345cae83447ff2",
-    "url": "/ant-design-vue-admin/js/chunk-vendors.cf3e8e7f.js.LICENSE.txt"
+    "url": "/ant-design-vue-admin/js/chunk-vendors.8cde8560.js.LICENSE.txt"
   },
   {
-    "revision": "38c9ed944b6e4a0eeeb8",
-    "url": "/ant-design-vue-admin/js/company.bf887923.js"
+    "revision": "880658fce6068ae2cab1",
+    "url": "/ant-design-vue-admin/js/company.bda9201e.js"
   },
   {
-    "revision": "7dcb95e19df9d4ba3b9d",
-    "url": "/ant-design-vue-admin/js/exception403.b40dfec7.js"
+    "revision": "14b02e86a5d937a5db3e",
+    "url": "/ant-design-vue-admin/js/exception403.9acec68a.js"
   },
   {
-    "revision": "4766c863e4b78f490381",
-    "url": "/ant-design-vue-admin/js/exception500.fd777202.js"
+    "revision": "17921f9583316c5281fa",
+    "url": "/ant-design-vue-admin/js/exception500.66d142f0.js"
   },
   {
-    "revision": "b1dd2f8388323b46c3e2",
-    "url": "/ant-design-vue-admin/js/fail.7bc09e1d.js"
+    "revision": "00bc7480750a01e7c552",
+    "url": "/ant-design-vue-admin/js/fail.8b038893.js"
   },
   {
-    "revision": "38a12e18f642e3ac5759",
-    "url": "/ant-design-vue-admin/js/login.48a9720b.js"
+    "revision": "94052e1c3889581256d6",
+    "url": "/ant-design-vue-admin/js/login.0c4945cd.js"
   },
   {
     "revision": "f926ad1fc909adab60d35ea68e06fbad",
