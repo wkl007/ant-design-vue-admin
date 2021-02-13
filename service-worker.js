@@ -14,16 +14,14 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ant-design-vue-admin/precache-manifest.fcf9d09c6d268a25cb5a6952151acc82.js"
+  "/ant-design-vue-admin/precache-manifest.34a3c878082a6e57fa1a846057cf8050.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "ant-design-vue-admin"});
 
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-});
+workbox.core.skipWaiting();
+
+workbox.core.clientsClaim();
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
