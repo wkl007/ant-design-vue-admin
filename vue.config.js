@@ -40,14 +40,10 @@ module.exports = {
       // 去console
       new TerserPlugin({
         terserOptions: {
-          warnings: false,
           compress: {
-            drop_debugger: true,
             drop_console: true
           }
-        },
-        sourceMap: false,
-        parallel: true
+        }
       }),
       // gzip压缩
       new CompressionWebpackPlugin({
@@ -90,11 +86,11 @@ module.exports = {
           // vue
           `${cdnUrl}vue@2.6.12/dist/vue.js`,
           // vue-router
-          `${cdnUrl}vue-router@3.4.9/dist/vue-router.js`,
+          `${cdnUrl}vue-router@3.5.1/dist/vue-router.js`,
           // vuex
-          `${cdnUrl}vuex@3.6.0/dist/vuex.js`,
+          `${cdnUrl}vuex@3.6.2/dist/vuex.js`,
           // axios
-          `${cdnUrl}axios@0.21.0/dist/axios.js`
+          `${cdnUrl}axios@0.21.1/dist/axios.js`
         ]
       },
       // 生产环境
@@ -105,11 +101,11 @@ module.exports = {
           // vue
           `${cdnUrl}vue@2.6.12/dist/vue.min.js`,
           // vue-router
-          `${cdnUrl}vue-router@3.4.9/dist/vue-router.min.js`,
+          `${cdnUrl}vue-router@3.5.1/dist/vue-router.min.js`,
           // vuex
-          `${cdnUrl}vuex@3.6.0/dist/vuex.min.js`,
+          `${cdnUrl}vuex@3.6.2/dist/vuex.min.js`,
           // axios
-          `${cdnUrl}axios@0.21.0/dist/axios.min.js`
+          `${cdnUrl}axios@0.21.1/dist/axios.min.js`
         ]
       }
     }
@@ -157,7 +153,12 @@ module.exports = {
   },
   // enabled by default if the machine has more than 1 cores
   parallel: require('os').cpus().length > 1,
-  pwa: {},
+  pwa: {
+    workboxOptions: {
+      skipWaiting: true,
+      clientsClaim: true
+    }
+  },
   // 第三方插件选项
   pluginOptions: {
     lintStyleOnBuild: true,
