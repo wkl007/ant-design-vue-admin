@@ -10,7 +10,8 @@
     "build:pro": "vue-cli-service build --mode production",
     "lint": "npm run lint:code && npm run lint:style",
     "lint:code": "vue-cli-service lint",
-    "lint:style": "vue-cli-service lint:style"
+    "lint:style": "vue-cli-service lint:style",
+    "postinstall": "husky install"
   },
   "lint-staged": {
     "src/**/*.{js,vue}": [
