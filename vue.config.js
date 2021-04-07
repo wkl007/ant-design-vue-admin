@@ -1,5 +1,5 @@
 const path = require('path')
-const webpack = require('webpack')
+const { IgnorePlugin } = require('webpack')
 
 const TerserPlugin = require('terser-webpack-plugin')// 去console插件
 const CompressionWebpackPlugin = require('compression-webpack-plugin')// gzip压缩插件
@@ -36,7 +36,10 @@ module.exports = {
     // config.name = name
     const plugins = [
       // 忽略moment locale文件
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new IgnorePlugin({
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/
+      }),
       // 去console
       new TerserPlugin({
         terserOptions: {
@@ -54,6 +57,14 @@ module.exports = {
           ['js', 'css'].join('|') +
           ')$'
         ),
+        threshold: 10240,
+        minRatio: 0.8
+      }),
+      // brotli压缩
+      new CompressionWebpackPlugin({
+        filename: '[path][base].br',
+        algorithm: 'brotliCompress',
+        test: /\.(js|css|html|svg)$/,
         threshold: 10240,
         minRatio: 0.8
       })
@@ -121,8 +132,6 @@ module.exports = {
   },
   // css相关配置
   css: {
-    // 启用 CSS modules
-    requireModuleExtension: true,
     // 开启 CSS source maps?
     sourceMap: false,
     // css预设器配置项

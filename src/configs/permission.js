@@ -30,7 +30,9 @@ router.beforeEach(async (to, from, next) => {
 
           const accessedRoutes = await generateRoutes(userInfo.roles) || []
 
-          router.addRoutes(accessedRoutes)
+          accessedRoutes.forEach(item => {
+            router.addRoute(item)
+          })
 
           const redirect = decodeURIComponent(from.query.redirect || to.path)
 
