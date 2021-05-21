@@ -7843,7 +7843,7 @@ postcss-less@^3.1.0, postcss-less@^3.1.4:
   dependencies:
     postcss "^7.0.14"
 
-postcss-loader@^5.0.0:
+postcss-loader@^5.0.0, postcss-loader@^5.3.0:
   version "5.3.0"
   resolved "https://registry.nlark.com/postcss-loader/download/postcss-loader-5.3.0.tgz#1657f869e48d4fdb018a40771c235e499ee26244"
   integrity sha1-Flf4aeSNT9sBikB3HCNeSZ7iYkQ=
@@ -8158,7 +8158,7 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.13, postcss@^7.0.14, postcss@^7.0.1
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@^8.2.15, postcss@^8.2.6, postcss@^8.2.9:
+postcss@^8.2.15, postcss@^8.2.6, postcss@^8.2.9, postcss@^8.3.0:
   version "8.3.0"
   resolved "https://registry.nlark.com/postcss/download/postcss-8.3.0.tgz?cache=0&sync_timestamp=1621568858981&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss%2Fdownload%2Fpostcss-8.3.0.tgz#b1a713f6172ca427e3f05ef1303de8b65683325f"
   integrity sha1-sacT9hcspCfj8F7xMD3otlaDMl8=
