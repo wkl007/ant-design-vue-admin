@@ -29,7 +29,7 @@ export const constantRoutes: MenuDataItem[] = [
       {
         path: '/user/registerResult',
         name: 'registerResult',
-        component: () => import(/* webpackChunkName: "registerResult" */'@/views/user/register-result.vue'),
+        component: () => import(/* webpackChunkName: "register-result" */'@/views/user/register-result.vue'),
         meta: { title: '注册账号' }
       }
     ]
