@@ -1,0 +1,27 @@
+@import "./variables";
+
+// 单行文本超出显示省略号
+.text-overflow-hidden {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// 多行文本超出显示省略号
+.text-overflow-multi(@line:3) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+// 清除浮动
+.clear-fix {
+  &::after {
+    display: table;
+    clear: both;
+    content: '';
+  }
+}

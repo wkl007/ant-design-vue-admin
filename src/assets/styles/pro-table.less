@@ -1,0 +1,40 @@
+@import "variables";
+
+/* base table */
+.@{pro-table-prefix-cls} {
+  .@{ant-prefix}-pagination {
+    padding: 0 24px;
+  }
+
+  &-column-setting-overlay {
+    .@{ant-prefix}-popover-inner-content {
+      padding: 8px 0;
+    }
+  }
+
+  .ant-pro-table-row-striped {
+    background: @background-color-light;
+  }
+}
+
+/* search */
+.@{pro-table-prefix-cls}-search {
+  margin-bottom: 16px;
+  padding: 24px 24px 0;
+  background: @component-background;
+
+  .@{ant-prefix}-row {
+    display: flex;
+  }
+
+  .@{ant-prefix}-form-item-control {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .@{ant-prefix}-form-horizontal {
+    .@{ant-prefix}-form-item-control-wrapper {
+      flex: 1 1;
+    }
+  }
+}

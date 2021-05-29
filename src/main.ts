@@ -1,12 +1,23 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
-import { setupAntd } from '@/antd'
+import App from '@/App.vue'
+import { setupRouter } from '@/router'
+import { setupStore } from '@/store'
+import { setupAntd } from '@/configs/antd'
+import { setupComponents } from '@/configs/components'
+import { setupIcons } from '@/configs/icons'
+import { setupTable } from '@/configs/table'
+import '@/configs/interceptor'
+import '@/configs/registerServiceWorker'
+
+import '@/assets/styles/index.less'
 
 const app = createApp(App)
 
-setupAntd(app)
+setupRouter(app) // vue-router
+setupStore(app) // vuex
+setupAntd(app) // antd
+setupComponents(app) // components
+setupIcons(app) // icons
+setupTable(app) // table
 
-app.use(store).use(router).mount('#app')
+app.mount('#app')

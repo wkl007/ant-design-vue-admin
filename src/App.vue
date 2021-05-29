@@ -1,80 +1,69 @@
 <template>
-  <a-form
-    layout="vertical"
-    :model="form"
-    @submit="handleSubmit"
-  >
-    <a-form-item v-bind="validateInfos.username">
-      <a-input
-        size="large"
-        v-model:value="form.username"
-        placeholder="账户: admin"
-      />
-    </a-form-item>
-    <a-form-item v-bind="validateInfos.password">
-      <a-input-password
-        size="large"
-        v-model:value="form.password"
-        placeholder="密码: admin or ant.design"
-      />
-    </a-form-item>
-    <a-form-item>
-      <a-button
-        size="large"
-        type="primary"
-        html-type="submit"
-        block
-      >
-        登录
-      </a-button>
-    </a-form-item>
-  </a-form>
+  <a-config-provider :locale="zhCN">
+    <router-view/>
+  </a-config-provider>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
-import { useForm } from '@ant-design-vue/use'
+import { computed, defineComponent, provide, reactive, watch } from 'vue'
+import { useStore } from 'vuex'
+import zhCN from 'ant-design-vue/es/locale/zh_CN'
+import { useMediaQuery } from '@/hooks/use-media-query'
+import { MENU_STATE_STORE_KEY, useMenuState } from '@/hooks/use-menu-state'
+import { useMultiTabStateProvider } from '@/components'
+import images from '@/assets/images'
 
 export default defineComponent({
   name: 'App',
   setup () {
-    const form = reactive({
-      username: '',
-      password: ''
-    })
-    const rules = reactive({
-      username: [
-        { required: true, message: '请输入帐户名' }
-      ],
-      password: [
-        { required: true, message: '请输入密码' }
-      ]
-    })
-    const { validateInfos, validate } = useForm(form, rules)
+    const store = useStore()
 
-    async function handleSubmit (e: Event) {
-      try {
-        e.preventDefault()
-        const values = await validate()
-        console.log(values)
-      } catch (e) {}
-    }
+    // 多标签
+    const multiTabState = useMultiTabStateProvider()
+
+    // 媒体查询设置
+    const colSize = useMediaQuery()
+    const isMobile = computed(() => colSize.value === 'sm' || colSize.value === 'xs')
+
+    // 菜单状态管理
+    const menuState = useMenuState(
+      {
+        collapsed: isMobile.value,
+        openKeys: [] as string[],
+        selectedKeys: [] as string[],
+        isMobile
+      },
+      multiTabState
+    )
+
+    // 主题
+    const theme = computed(() => store.getters.navTheme)
+
+    // 主题设置
+    watch(
+      theme,
+      () => {
+        if (theme.value === 'realDark') {
+          document
+            .getElementsByTagName('html')[0]
+            .setAttribute('theme', 'dark')
+        } else {
+          document
+            .getElementsByTagName('html')[0]
+            .setAttribute('theme', 'light')
+        }
+      },
+      { immediate: true }
+    )
+
+    provide('images', reactive(images))
+    provide('isMobile', isMobile)
+    provide('isRealDark', computed(() => theme.value === 'realDark'))
+    provide(MENU_STATE_STORE_KEY, menuState)
 
     return {
-      form,
-      validateInfos,
-      handleSubmit
+      zhCN
     }
   }
 })
 </script>
-
-<style lang="less">
-#app {
-  color: #2c3e50;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-</style>
