@@ -2,21 +2,13 @@
  * @license MIT */
 
 /*!
-  * vue-router v4.0.8
+  * vue-router v4.0.11
   * (c) 2021 Eduardo San Martin Morote
   * @license MIT
   */
 
 /*!
- * JavaScript Cookie v2.2.1
- * https://github.com/js-cookie/js-cookie
- *
- * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
- * Released under the MIT license
- */
-
-/*!
- * vuex v4.0.1
+ * vuex v4.0.2
  * (c) 2021 Evan You
  * @license MIT
  */
@@ -49,5 +41,7 @@ PERFORMANCE OF THIS SOFTWARE.
  * license : MIT
  * http://adamwdraper.github.com/Numeral-js/
  */
+
+/*! js-cookie v3.0.0 | MIT */
 
 //! moment.js
