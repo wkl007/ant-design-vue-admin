@@ -1,5 +1,6 @@
 import { useStore } from 'vuex'
-import { App, computed, ComputedRef, inject, provide, RenderFunction, SetupContext, toRefs } from 'vue'
+import { App, computed, ComputedRef, defineComponent, inject, provide, RenderFunction, SetupContext, toRefs } from 'vue'
+import { withInstall } from '@/utils'
 import type { ContentWidth } from '@/types/store/app'
 
 export interface ProProviderProps {
@@ -29,9 +30,9 @@ export const defaultProProvider: ProProviderData = {
 }
 
 /**
- * 提供 contentWidth getPrefixCls 供全局使用
+ * 提供 i18n contentWidth getPrefixCls 供全局使用
  */
-const ProProvider = {
+const ProProvider = defineComponent({
   name: 'ProProvider',
   props: {
     /** 类名前缀 */
@@ -40,7 +41,7 @@ const ProProvider = {
       default: 'ant-pro'
     }
   },
-  setup (props: ProProviderProps, { slots }: SetupContext): RenderFunction | void {
+  setup (props, { slots }: SetupContext): RenderFunction | void {
     const store = useStore()
     const { prefixCls } = toRefs(props)
     const contentWidth = computed(() => store.getters.contentWidth)
@@ -63,13 +64,13 @@ const ProProvider = {
   install (app: App): void {
     app.component(ProProvider.name, ProProvider)
   }
-}
+})
 
 /**
- * 获取 contentWidth getPrefixCls
+ * 获取 i18n contentWidth getPrefixCls
  */
 export function injectProProvider (): ProProviderData {
   return inject(PRO_PROVIDER_STORE_KEY, defaultProProvider)
 }
 
-export default ProProvider
+export default withInstall(ProProvider)

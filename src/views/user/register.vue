@@ -113,7 +113,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, reactive, toRefs } from 'vue'
-import { useForm } from '@ant-design-vue/use'
+import { useForm } from 'ant-design-vue/es/form'
 import { message, notification } from 'ant-design-vue'
 import { useRouter } from 'vue-router'
 import UserServer from '@/api/user'

@@ -51,7 +51,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
 import { injectProProvider } from '@/components'
-import { getMenuFirstChildren } from '@/hooks/use-menu-state'
+import { getMenuFirstChildren } from '@/hooks/useMenuState'
 import type { Layout, MenuTheme } from '@/types/store/app'
 import type { RouteProps } from '@/types/router'
 import GlobalHeader from '../global-header/index.vue'

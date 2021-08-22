@@ -131,7 +131,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import { Container as DragContainer, Draggable, DragIcon } from '@/components'
-import { DynamicColumnItem } from '@/hooks/use-table-column'
+import { DynamicColumnItem } from '@/hooks/useTableColumn'
 
 export default defineComponent({
   name: 'TableToolbar',

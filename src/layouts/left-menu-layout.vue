@@ -35,7 +35,7 @@
             <avatar-dropdown :user-info="userInfo"/>
           </div>
         </header-view>
-        <a-layout>
+        <a-layout style="width: auto;">
           <side-menu
             :style="{
               zIndex: 7,
@@ -101,8 +101,8 @@
 import { cloneVNode, computed, defineComponent, ref, VNode, watch } from 'vue'
 import { useStore } from 'vuex'
 import { AvatarDropdown, GlobalFooter, HeaderView, SettingDrawer, SideMenu, WrapContent } from '@/components'
-import { filterMenu, getMenuFirstChildren, getMenuInfo, injectMenuState } from '@/hooks/use-menu-state'
-import { useDelayReset } from '@/hooks/use-delay-reset'
+import { filterMenu, getMenuFirstChildren, getMenuInfo, injectMenuState } from '@/hooks/useMenuState'
+import { useDelayReset } from '@/hooks/useDelayReset'
 
 export default defineComponent({
   name: 'LeftMenuLayout',
@@ -200,7 +200,7 @@ export default defineComponent({
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 24px;
+    padding: 24px;
   }
 
   .menu-header-title {

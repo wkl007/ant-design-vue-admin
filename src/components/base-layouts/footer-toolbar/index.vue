@@ -12,7 +12,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType, VNodeChild } from 'vue'
 import { injectProProvider } from '@/components'
-import { injectMenuState } from '@/hooks/use-menu-state'
+import { injectMenuState } from '@/hooks/useMenuState'
 
 export default defineComponent({
   name: 'FooterToolbar',

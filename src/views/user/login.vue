@@ -131,7 +131,7 @@
 import { defineComponent, reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import { useForm } from '@ant-design-vue/use'
+import { useForm } from 'ant-design-vue/es/form'
 import UserServer from '@/api/user'
 import { UserInfo } from '@/types/store/user'
 

@@ -8,8 +8,8 @@
 import { computed, defineComponent, provide, reactive, watch } from 'vue'
 import { useStore } from 'vuex'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import { useMediaQuery } from '@/hooks/use-media-query'
-import { MENU_STATE_STORE_KEY, useMenuState } from '@/hooks/use-menu-state'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { MENU_STATE_STORE_KEY, useMenuState } from '@/hooks/useMenuState'
 import { useMultiTabStateProvider } from '@/components'
 import images from '@/assets/images'
 

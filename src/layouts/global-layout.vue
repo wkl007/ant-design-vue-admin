@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { injectMenuState } from '@/hooks/use-menu-state'
+import { injectMenuState } from '@/hooks/useMenuState'
 import { Watermark } from '@/components'
 import LeftMenuLayout from './left-menu-layout.vue'
 import BasicLayout from './basic-layout.vue'

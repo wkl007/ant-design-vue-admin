@@ -1,15 +1,22 @@
 <template>
-  <a-sub-menu v-if="!menu.meta?.hideInMenu">
-    <template #title>
+  <a-sub-menu
+    v-if="!menu.meta?.hideInMenu"
+    :key="menu.path"
+  >
+    <template #icon>
       <component
         v-if="menu.meta.icon"
         :is="menu.meta.icon"
+        :key="menu.meta.icon"
       />
       <component
         v-else-if="collapsed&&menu.meta.collapsedIcon"
         :is="menu.meta.collapsedIcon"
+        :key="menu.meta.collapsedIcon"
       />
-      <span>{{ menu.meta.title }}</span>
+    </template>
+    <template #title>
+      {{ menu.meta.title }}
     </template>
     <template
       v-for="(item,index) in menu.children"
@@ -18,17 +25,21 @@
       <a-menu-item
         v-if="(!item.children?.length||item.meta?.hideChildrenInMenu)&&!item.meta?.hideInMenu"
         :key="item.path"
-        @mouseenter="$emit('itemHover',$event)"
+        @mouseenter="$emit('itemHover',{key:item.path})"
       >
-        <component
-          v-if="item.meta.icon"
-          :is="item.meta.icon"
-        />
-        <component
-          v-else-if="collapsed&&item.meta.collapsedIcon"
-          :is="item.meta.collapsedIcon"
-        />
-        <span>{{ item.meta.title }}</span>
+        <template #icon>
+          <component
+            v-if="item.meta.icon"
+            :is="item.meta.icon"
+            :key="item.meta.icon"
+          />
+          <component
+            v-else-if="collapsed&&item.meta.collapsedIcon"
+            :is="item.meta.collapsedIcon"
+            :key="item.meta.collapsedIcon"
+          />
+        </template>
+        {{ item.meta.title }}
       </a-menu-item>
       <sub-menu
         v-else

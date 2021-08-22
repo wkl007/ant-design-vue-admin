@@ -24,17 +24,23 @@
       >
         <template v-if="menu">
           <a-menu-item key="center">
-            <user-outlined/>
+            <template #icon>
+              <user-outlined/>
+            </template>
             个人中心
           </a-menu-item>
           <a-menu-item key="settings">
-            <setting-outlined/>
+            <template #icon>
+              <setting-outlined/>
+            </template>
             个人设置
           </a-menu-item>
           <a-menu-divider/>
         </template>
         <a-menu-item key="logout">
-          <logout-outlined/>
+          <template #icon>
+            <logout-outlined/>
+          </template>
           退出登录
         </a-menu-item>
       </a-menu>

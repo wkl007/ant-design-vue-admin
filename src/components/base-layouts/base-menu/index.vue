@@ -22,17 +22,21 @@
       >
         <a-menu-item
           :key="menu.path"
-          @mouseenter="$emit('itemHover',$event)"
+          @mouseenter="$emit('itemHover',{key:menu.path})"
         >
-          <component
-            v-if="menu.meta.icon"
-            :is="menu.meta.icon"
-          />
-          <component
-            v-else-if="collapsed && menu.meta.collapsedIcon"
-            :is="menu.meta.collapsedIcon"
-          />
-          <span>{{ menu.meta.title }}</span>
+          <template #icon>
+            <component
+              v-if="menu.meta.icon"
+              :is="menu.meta.icon"
+              :key="menu.meta.icon"
+            />
+            <component
+              v-else-if="collapsed && menu.meta.collapsedIcon"
+              :is="menu.meta.collapsedIcon"
+              :key="menu.meta.collapsedIcon"
+            />
+          </template>
+          {{ menu.meta.title }}
         </a-menu-item>
       </transform-v-node>
       <sub-menu

@@ -1,5 +1,7 @@
 const { VUE_APP_API_URL } = process.env
 
+export const BASE_URL: string = process.env.BASE_URL // 部署应用包时的基本 URL
+
 export const NODE_ENV: string = process.env.NODE_ENV // 环境变量
 
 export const API_URL: string = VUE_APP_API_URL // 接口url

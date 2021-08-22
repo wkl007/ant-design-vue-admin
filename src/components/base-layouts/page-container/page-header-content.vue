@@ -43,6 +43,8 @@ export default defineComponent({
 
   .@{pro-layout-page-container}-row {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
   }
 
@@ -97,12 +99,9 @@ export default defineComponent({
 
 @media screen and (max-width: @screen-md) {
   .@{pro-layout-page-container}-main {
-    .@{pro-layout-page-container}-row {
-      display: block;
-    }
-
     .@{pro-layout-page-container}-action,
     .@{pro-layout-page-container}-extraContent {
+      margin-top: 10px;
       margin-left: 0;
       text-align: left;
     }

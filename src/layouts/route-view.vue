@@ -15,7 +15,7 @@
 <script>
 import { computed, defineComponent } from 'vue'
 import { MultiTabStoreConsumer } from '@/components'
-import { injectMenuState } from '@/hooks/use-menu-state'
+import { injectMenuState } from '@/hooks/useMenuState'
 
 export default defineComponent({
   name: 'RouteView',

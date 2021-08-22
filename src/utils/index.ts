@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid'
 import moment, { MomentInput } from 'moment'
 import numeral from 'numeral'
 import screenFull from 'screenfull'
+import type { App } from 'vue'
 
 /**
  * 全屏
@@ -71,4 +72,17 @@ export function wanFormat (number: number): [number, string] | null {
  */
 export function fixedZero (number: number): string | number {
   return number < 10 ? `0${number}` : number
+}
+
+/**
+ * withInstall
+ * @param comp
+ */
+export function withInstall<T> (comp: T): T & Plugin {
+  const c = comp as any
+  c.install = function (app: App) {
+    app.component(c.displayName || c.name, comp)
+  }
+
+  return comp as T & Plugin
 }

@@ -52,6 +52,7 @@
           v-model:selected-keys="selectedKeys"
         >
           <div style="text-align: right;">
+            <notice-icon/>
             <avatar-dropdown :user-info="userInfo"/>
           </div>
         </header-view>
@@ -75,8 +76,17 @@
 <script>
 import { computed, defineComponent } from 'vue'
 import { useStore } from 'vuex'
-import { AvatarDropdown, GlobalFooter, HeaderView, MultiTab, SettingDrawer, SideMenu, WrapContent } from '@/components'
-import { filterMenu, getMenuInfo, injectMenuState } from '@/hooks/use-menu-state'
+import {
+  AvatarDropdown,
+  GlobalFooter,
+  HeaderView,
+  MultiTab,
+  NoticeIcon,
+  SettingDrawer,
+  SideMenu,
+  WrapContent
+} from '@/components'
+import { filterMenu, getMenuInfo, injectMenuState } from '@/hooks/useMenuState'
 
 export default defineComponent({
   name: 'BasicLayout',
@@ -87,7 +97,8 @@ export default defineComponent({
     WrapContent,
     GlobalFooter,
     MultiTab,
-    SettingDrawer
+    SettingDrawer,
+    NoticeIcon
   },
   setup () {
     const store = useStore()

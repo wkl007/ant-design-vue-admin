@@ -53,7 +53,7 @@
 import { createTextVNode, defineComponent, h, PropType, ref, VNode, VNodeChild, withCtx } from 'vue'
 import { RouterLink } from 'vue-router'
 import { GridContent, injectProProvider } from '@/components'
-import { injectMenuState } from '@/hooks/use-menu-state'
+import { injectMenuState } from '@/hooks/useMenuState'
 import PageHeaderContent from './page-header-content.vue'
 
 export interface Tab {
@@ -157,14 +157,7 @@ export default defineComponent({
     const onBack = props.back || attrs.onBack
 
     /** 返回按钮点击 */
-    const handleBack =
-      (onBack &&
-        ((): void => {
-          // this.$emit('back')
-          // call props back func
-          onBack()
-        })) ||
-      undefined
+    const handleBack = onBack || undefined
 
     /** tab更改 */
     function handleTabChange (activeKey: string): void {

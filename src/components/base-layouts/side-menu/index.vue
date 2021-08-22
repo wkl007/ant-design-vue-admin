@@ -62,10 +62,12 @@
             :title="null"
             @click="handleCollapse"
           >
-            <slot name="collapsedButton">
-              <menu-unfold-outlined v-if="collapsed"/>
-              <menu-fold-outlined v-else/>
-            </slot>
+            <template #icon>
+              <slot name="collapsedButton">
+                <menu-unfold-outlined v-if="collapsed"/>
+                <menu-fold-outlined v-else/>
+              </slot>
+            </template>
           </a-menu-item>
         </a-menu>
       </div>
@@ -76,7 +78,7 @@
 <script lang="ts">
 import { computed, defineComponent, inject, PropType, toRefs } from 'vue'
 import { useRoute } from 'vue-router'
-import { findMenuChildren } from '@/hooks/use-menu-state'
+import { findMenuChildren } from '@/hooks/useMenuState'
 import type { Layout, MenuTheme } from '@/types/store/app'
 import type { RouteProps } from '@/types/router'
 import { BaseMenu, injectProProvider } from '@/components'

@@ -64,7 +64,7 @@
 import { computed, defineComponent, reactive, ref } from 'vue'
 import { useStore } from 'vuex'
 import { injectProProvider } from '@/components'
-import { injectMenuState } from '@/hooks/use-menu-state'
+import { injectMenuState } from '@/hooks/useMenuState'
 import * as types from '@/store/modules/app/mutationTypes'
 import type { Layout } from '@/types/store/app'
 import BodyWrapper from './body-wrapper.vue'

@@ -103,8 +103,8 @@
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { injectMenuState } from '@/hooks/use-menu-state'
-import { injectMultiTabStore, injectProProvider, useMultiTab } from '@/components'
+import { injectMenuState } from '@/hooks/useMenuState'
+import { injectMultiTabStore, useMultiTab } from '@/components'
 
 export default defineComponent({
   name: 'MultiTab',

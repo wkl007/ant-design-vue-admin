@@ -237,7 +237,7 @@ export function useMenuState (initialState?: MenuState, multiTabState?: UnwrapRe
     breadcrumb.value = route.matched.concat().map(r => {
       return {
         path: r.path,
-        breadcrumbName: r.path === '/' ? '首頁' : r.meta.title as string
+        breadcrumbName: r.path === '/' ? '首页' : r.meta.title !== undefined ? r.meta.title as string : ''
       }
     })
   }
@@ -288,8 +288,7 @@ export function useMenuState (initialState?: MenuState, multiTabState?: UnwrapRe
           return
         }
         if (!state.collapsed &&
-          layoutState.layout !== 'left' &&
-          (layoutState.layout === 'side' || layoutState.layout === 'mix' || layoutState.splitMenus === true) &&
+          layoutState.layout !== 'left' && (layoutState.layout === 'side' || layoutState.layout === 'mix' || layoutState.splitMenus) &&
           !isOtherUrlForOldVal
         ) {
           const openKeys = getOpenKeysBySelectKey(path)
@@ -299,8 +298,10 @@ export function useMenuState (initialState?: MenuState, multiTabState?: UnwrapRe
         }
 
         router.isReady().then(() => {
-          const routeInfo = getRouteInfoFromMultiTab(path)
-          router.push(routeInfo || { path })
+          const routeInfo = getRouteInfoFromMultiTab(path) || { path }
+          if (routeInfo.fullPath !== route.fullPath) {
+            router.push(routeInfo)
+          }
         })
       }
     }
