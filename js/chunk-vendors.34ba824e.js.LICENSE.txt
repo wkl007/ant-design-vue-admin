@@ -42,6 +42,6 @@ PERFORMANCE OF THIS SOFTWARE.
  * http://adamwdraper.github.com/Numeral-js/
  */
 
-/*! js-cookie v3.0.0 | MIT */
+/*! js-cookie v3.0.1 | MIT */
 
 //! moment.js
